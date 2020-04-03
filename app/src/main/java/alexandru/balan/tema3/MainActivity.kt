@@ -1,7 +1,8 @@
 package alexandru.balan.tema3
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentActivity
 
 class MainActivity : AppCompatActivity() {
 

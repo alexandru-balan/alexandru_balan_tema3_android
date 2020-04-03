@@ -2,6 +2,9 @@ package alexandru.balan.tema3.data
 
 import androidx.room.Entity
 import androidx.room.ForeignKey
+import androidx.room.PrimaryKey
+import androidx.room.migration.Migration
+import androidx.sqlite.db.SupportSQLiteDatabase
 
 /**
  * This class has a many-to-one relationship with the [User] class.
@@ -13,7 +16,7 @@ import androidx.room.ForeignKey
 )
 data class Todo (
     val userId : Int,
-    val id : Int,
+    @PrimaryKey val id : Int,
     val title : String,
     val completed : Boolean
 )

@@ -15,7 +15,7 @@ import androidx.work.WorkManager
  * the one that will be used throughout the application. When the instance is created, the database
  * will be seeded by the [SeedDatabaseWorker] with information from the json files in assets folder.
  */
-@Database(entities = [User::class], version = 1, exportSchema = false)
+@Database(entities = [User::class, Todo::class], version = 2, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun userDao() : UserDao
@@ -40,9 +40,9 @@ abstract class AppDatabase : RoomDatabase() {
                         val userRequest = OneTimeWorkRequestBuilder<UserSeedDatabaseWorker>().build()
                         val todoRequest = OneTimeWorkRequestBuilder<TodoSeedDatabaseWorker>().build()
                         WorkManager.getInstance(context).enqueue(userRequest)
+                        WorkManager.getInstance(context).enqueue(todoRequest)
                     }
-                })
-                .build()
+                }).fallbackToDestructiveMigration().build()
         }
     }
 }
