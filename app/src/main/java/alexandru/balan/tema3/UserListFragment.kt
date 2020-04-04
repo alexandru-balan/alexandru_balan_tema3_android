@@ -3,12 +3,15 @@ package alexandru.balan.tema3
 import alexandru.balan.tema3.adapters.UserListAdapter
 import alexandru.balan.tema3.data.AppDatabase
 import alexandru.balan.tema3.data.UserRepository
+import alexandru.balan.tema3.interfaces.ItemClickListener
 import alexandru.balan.tema3.viewmodels.UserListViewModel
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -29,7 +32,11 @@ class UserListFragment : Fragment() {
 
         userListViewModel = ViewModelProvider(this).get(UserListViewModel::class.java)
 
-        adapter = activity?.let { UserListAdapter(it) }!!
+        adapter = activity?.let { UserListAdapter(it, object : ItemClickListener<ConstraintLayout> {
+            override fun onItemClick(item: ConstraintLayout) {
+                Log.i(TAG, "Clicked an item")
+            }
+        }) }!!
 
         userListViewModel.users.observe(this, Observer { users ->
             users?.let { adapter.setUsers(it) }
@@ -55,5 +62,6 @@ class UserListFragment : Fragment() {
     companion object {
         @JvmStatic
         fun newInstance() = UserListFragment()
+        private const val TAG = "User-List-Fragment"
     }
 }

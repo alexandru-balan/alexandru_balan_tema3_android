@@ -2,15 +2,17 @@ package alexandru.balan.tema3.adapters
 
 import alexandru.balan.tema3.R
 import alexandru.balan.tema3.data.User
+import alexandru.balan.tema3.interfaces.ItemClickListener
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.user_layout.view.*
 
-class UserListAdapter internal constructor(private val context: Context) : RecyclerView.Adapter<UserListAdapter.UserViewHolder>(){
+class UserListAdapter internal constructor(private val context: Context, private val itemClickListener: ItemClickListener<ConstraintLayout>) : RecyclerView.Adapter<UserListAdapter.UserViewHolder>(){
 
     private val inflater : LayoutInflater = LayoutInflater.from(context)
     private var users : List<User> = emptyList()
@@ -29,6 +31,13 @@ class UserListAdapter internal constructor(private val context: Context) : Recyc
         holder.userItemView.user_fullName.text = currentUser.name
         holder.userItemView.user_username.text = currentUser.username
         holder.userItemView.user_email.text = context.getString(R.string.emailMutedDetail, currentUser.email)
+
+        /** We now bind the [itemClickListener] to the [UserViewHolder.userItemView]*/
+        bindListener(holder.userItemView, itemClickListener)
+    }
+
+    internal fun bindListener (itemView : ConstraintLayout, itemClickListener: ItemClickListener<ConstraintLayout>) {
+        itemView.setOnClickListener {itemClickListener.onItemClick(itemView)}
     }
 
     internal fun setUsers (users : List<User>) {
