@@ -33,11 +33,11 @@ class UserListAdapter internal constructor(private val context: Context, private
         holder.userItemView.user_email.text = context.getString(R.string.emailMutedDetail, currentUser.email)
 
         /** We now bind the [itemClickListener] to the [UserViewHolder.userItemView]*/
-        bindListener(holder.userItemView, itemClickListener)
+        bindListener(holder.userItemView, itemClickListener, currentUser.id)
     }
 
-    internal fun bindListener (itemView : ConstraintLayout, itemClickListener: ItemClickListener<ConstraintLayout>) {
-        itemView.setOnClickListener {itemClickListener.onItemClick(itemView)}
+    internal fun bindListener (itemView : ConstraintLayout, itemClickListener: ItemClickListener<ConstraintLayout>, id: Int) {
+        itemView.setOnClickListener {itemClickListener.onItemClick(itemView, id)}
     }
 
     internal fun setUsers (users : List<User>) {

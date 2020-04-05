@@ -7,4 +7,5 @@
     <dimen name="m_margin">10dp</dimen>
     <dimen name="l_margin">18dp</dimen>
     <dimen name="xl_margin">24dp</dimen>
+    <dimen name="option_button_width">150dp</dimen>
 </resources>

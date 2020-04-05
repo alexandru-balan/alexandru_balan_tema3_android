@@ -3,4 +3,11 @@
 
     <string name="emailMutedDetail">(%1$s)</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="chose_date">Chose date</string>
+    <string name="chose_time">Chose time</string>
+    <string name="set_alarm">Set Alarm</string>
+    <string name="todo_alarm">Todo alarm</string>
+
 </resources>

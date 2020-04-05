@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:padding="@dimen/m_margin"
+    tools:context=".TodoOptionsFragment">
+
+    <Button
+        android:id="@+id/todo_option_date"
+        android:layout_width="@dimen/option_button_width"
+        android:layout_height="wrap_content"
+        android:text="@string/chose_date"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </Button>
+
+    <Button
+        android:id="@+id/todo_option_time"
+        android:layout_width="@dimen/option_button_width"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/l_margin"
+        android:text="@string/chose_time"
+        app:layout_constraintTop_toBottomOf="@id/todo_option_date"
+        app:layout_constraintStart_toStartOf="parent">
+
+    </Button>
+
+    <Button
+        android:id="@+id/todo_setAlarm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/xl_margin"
+        android:layout_marginTop="@dimen/xl_margin"
+        android:text="@string/set_alarm"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/todo_option_time">
+
+    </Button>
+
+    <TextView
+        android:id="@+id/todo_date_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="15/10/2019"
+        style="@style/NormalText"
+        android:gravity="center"
+        app:layout_constraintStart_toEndOf="@id/todo_option_date"
+        app:layout_constraintBaseline_toBaselineOf="@id/todo_option_date"
+        app:layout_constraintEnd_toEndOf="parent">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/todo_time_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="05:15"
+        style="@style/NormalText"
+        android:gravity="center"
+        app:layout_constraintStart_toEndOf="@id/todo_option_time"
+        app:layout_constraintBaseline_toBaselineOf="@id/todo_option_time"
+        app:layout_constraintEnd_toEndOf="parent">
+
+    </TextView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

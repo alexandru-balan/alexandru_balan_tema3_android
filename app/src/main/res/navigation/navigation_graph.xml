@@ -3,11 +3,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_graph"
-    app:startDestination="@id/userListFragment2">
+    app:startDestination="@id/userListFragment_flow1">
 
     <fragment
-        android:id="@+id/userListFragment2"
+        android:id="@+id/userListFragment_flow1"
         android:name="alexandru.balan.tema3.UserListFragment"
         android:label="fragment_user_list"
-        tools:layout="@layout/fragment_user_list" />
+        tools:layout="@layout/fragment_user_list" >
+        <action
+            android:id="@+id/action_userListFragment2_to_todoListFragment"
+            app:destination="@id/todoListFragment_flow2" />
+    </fragment>
+    <fragment
+        android:id="@+id/todoListFragment_flow2"
+        android:name="alexandru.balan.tema3.TodoListFragment"
+        android:label="fragment_todo_list"
+        tools:layout="@layout/fragment_todo_list" >
+        <action
+            android:id="@+id/action_todoListFragment_flow2_to_todoOptionsFragment"
+            app:destination="@id/todoOptionsFragment_flow3" />
+    </fragment>
+    <fragment
+        android:id="@+id/todoOptionsFragment_flow3"
+        android:name="alexandru.balan.tema3.TodoOptionsFragment"
+        android:label="fragment_todo_options"
+        tools:layout="@layout/fragment_todo_options" />
 </navigation>
