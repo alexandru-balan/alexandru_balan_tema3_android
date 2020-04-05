@@ -6,6 +6,8 @@
     <color name="colorPrimaryDark">#620029</color>
     <color name="colorAccent">#00A8A0</color>
     <color name="colorWhite">#FFF5FA</color>
+    <color name="colorPureWhite">#FFFFFF</color>
+    <color name="colorPureBlack">#000000</color>
 
     <!-- UI colors -->
     <color name="colorText">#4F4350</color>

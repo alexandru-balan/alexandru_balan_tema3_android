@@ -13,6 +13,8 @@
         android:layout_width="@dimen/option_button_width"
         android:layout_height="wrap_content"
         android:text="@string/chose_date"
+        android:textColor="@color/btn_text"
+        android:background="@drawable/medium_button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -24,6 +26,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/l_margin"
         android:text="@string/chose_time"
+        android:textColor="@color/btn_text"
+        android:background="@drawable/medium_button"
         app:layout_constraintTop_toBottomOf="@id/todo_option_date"
         app:layout_constraintStart_toStartOf="parent">
 
@@ -36,6 +40,8 @@
         android:layout_marginHorizontal="@dimen/xl_margin"
         android:layout_marginTop="@dimen/xl_margin"
         android:text="@string/set_alarm"
+        android:textColor="@color/btn_action_text"
+        android:background="@drawable/action_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

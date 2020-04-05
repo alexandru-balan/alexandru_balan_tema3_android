@@ -15,6 +15,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat.getSystemService
 import androidx.lifecycle.Observer
@@ -145,14 +146,14 @@ class TodoOptionsFragment : Fragment() {
 
         val alarmManager : AlarmManager = activity?.getSystemService(Context.ALARM_SERVICE) as AlarmManager
 
-        alarmManager.setAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, delay, contentPendingIntent)
-
-        /*val alarmUp = (PendingIntent.getBroadcast(activity, NOTIFICATION_ID, contentIntent,
-            PendingIntent.FLAG_NO_CREATE) != null)
-
-        if(alarmUp) {
-            Log.i(TAG, "Alarm is up")
-        }*/
+        if (delay - System.currentTimeMillis() > 0) {
+            alarmManager.setAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, delay, contentPendingIntent)
+            Toast.makeText(activity, "Notification scheduled", Toast.LENGTH_SHORT).show()
+            parentFragmentManager.popBackStackImmediate()
+        }
+        else {
+            Toast.makeText(activity, "Can't schedule in the past", Toast.LENGTH_SHORT).show()
+        }
     }
 
     fun makeNotification (contentText: String, delay: Long) {
