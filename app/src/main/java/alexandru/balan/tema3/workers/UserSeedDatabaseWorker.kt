@@ -9,7 +9,9 @@ import androidx.work.WorkerParameters
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.google.gson.stream.JsonReader
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.withContext
 import java.lang.Exception
 
 /**
@@ -17,7 +19,7 @@ import java.lang.Exception
  * in the Room Database.
  */
 class UserSeedDatabaseWorker (context: Context, workerParameters: WorkerParameters) : CoroutineWorker(context, workerParameters) {
-    override suspend fun doWork(): Result = coroutineScope {
+    override suspend fun doWork(): Result = withContext(Dispatchers.IO) {
         try {
             applicationContext.assets.open("users.json").use {
                 inputStream -> JsonReader(inputStream.reader()).use {

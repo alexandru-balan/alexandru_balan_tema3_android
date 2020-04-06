@@ -10,13 +10,15 @@ import androidx.work.WorkerParameters
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.google.gson.stream.JsonReader
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.withContext
 import java.io.InputStream
 import java.lang.Exception
 
 class TodoSeedDatabaseWorker (context: Context, workerParameters: WorkerParameters) : CoroutineWorker(context, workerParameters) {
 
-    override suspend fun doWork(): Result = coroutineScope {
+    override suspend fun doWork(): Result = withContext(Dispatchers.IO) {
         val todoType = object : TypeToken<List<Todo>>(){}.type
         val database = AppDatabase.getInstance(applicationContext)
         for (i in 1..10) {

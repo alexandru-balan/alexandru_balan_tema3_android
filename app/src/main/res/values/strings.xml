@@ -9,5 +9,7 @@
     <string name="chose_time">Chose time</string>
     <string name="set_alarm">Set Alarm</string>
     <string name="todo_alarm">Todo alarm</string>
+    <string name="time_hint">05:15</string>
+    <string name="date_hint">15/10/2019</string>
 
 </resources>

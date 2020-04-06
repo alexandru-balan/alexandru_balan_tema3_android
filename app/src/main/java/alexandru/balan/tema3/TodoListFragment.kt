@@ -81,21 +81,6 @@ class TodoListFragment : Fragment() {
         return view
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        // Show toast on first launch
-        val sharedPreferences : SharedPreferences? = activity?.getPreferences(Context.MODE_PRIVATE)
-        val showTutorial : Boolean? = sharedPreferences?.getBoolean("showTutorial",false)
-        if (showTutorial!!) {
-            val toast : Toast = Toast.makeText(context, "Long-press items to show options", Toast.LENGTH_LONG)
-            toast.setGravity(Gravity.CENTER, 0, 0)
-            toast.show()
-
-            sharedPreferences.edit().clear().putBoolean("showTutorial", false).apply()
-        }
-    }
-
     companion object {
 
         private const val TAG = "Todo-List-Fragment"

@@ -152,6 +152,7 @@ class TodoOptionsFragment : Fragment() {
             parentFragmentManager.popBackStackImmediate()
         }
         else {
+            /*Does Android have a toast limit?*/
             Toast.makeText(activity, "Can't schedule in the past", Toast.LENGTH_SHORT).show()
         }
     }

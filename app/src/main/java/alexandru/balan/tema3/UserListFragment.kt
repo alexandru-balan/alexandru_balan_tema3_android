@@ -34,14 +34,6 @@ class UserListFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // Writing to shared preferences
-        val sharedPreferences : SharedPreferences? = activity?.getPreferences(Context.MODE_PRIVATE)
-        val showTutorial : Boolean? = sharedPreferences?.contains("showTutorial")
-
-        if (!showTutorial!!) {
-            sharedPreferences.edit().putBoolean("showTutorial", true).apply()
-        }
-
         userListViewModel = ViewModelProvider(this).get(UserListViewModel::class.java)
 
         adapter = activity?.let { UserListAdapter(it, object : ItemClickListener<ConstraintLayout> {
